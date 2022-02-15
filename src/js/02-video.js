@@ -1,4 +1,5 @@
 import Player from '@vimeo/player';
+const throttle = require('lodash.throttle');
 
 const iframe = document.querySelector('iframe');
 const player = new Vimeo.Player(iframe);
@@ -21,7 +22,7 @@ const onPlay = function(data) {
 let currentTime = parsedFeedBackForm.seconds;
 console.log(currentTime);
 
-player.on('play', _.throttle(onPlay,1000));    
+player.on('play', throttle(onPlay,1000));    
 
 player.setCurrentTime(currentTime).then(function(seconds) {
     // seconds = the actual time that the player seeked to
