@@ -8,7 +8,7 @@ const parsedFeedBackForm = JSON.parse(getCurrentTimeVideo);
 
 const onPlay = function(data) {
     console.log(data)
-    const currentTimeVideo = {           //TimeUppdate
+    const currentTimeVideo = {          //TimeUppdate
         duration: data.duration,
         percent: data.percent,
         seconds: data.seconds,
