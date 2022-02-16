@@ -19,8 +19,8 @@ const onPlay = function(data) {
     
 };
 
-let currentTime = parsedFeedBackForm.seconds;
-console.log(currentTime);
+let currentTime = JSON.parse(getCurrentTimeVideo).seconds;
+// console.log(currentTime);
 
 player.on('play', throttle(onPlay,1000));    
 
