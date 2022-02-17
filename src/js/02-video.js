@@ -18,8 +18,8 @@ const onPlay = function(data) {
         localStorage.setItem("videoplayer-current-time", JSON.stringify(currentTimeVideo));
     
 };
-
-const currentTime = JSON.parse(getCurrentTimeVideo);   //.seconds
+let currentTime = 0;
+currentTime = JSON.parse(getCurrentTimeVideo);   //.seconds
 // console.log(currentTime.seconds);
 
 player.on('play', throttle(onPlay,1000));    
