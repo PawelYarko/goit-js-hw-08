@@ -5,7 +5,7 @@ const iframe = document.querySelector('iframe');
 const player = new Vimeo.Player(iframe);
 
 const getCurrentTimeVideo = localStorage.getItem("videoplayer-current-time");
-const parsedFeedBackForm = JSON.parse(getCurrentTimeVideo);
+// const parsedFeedBackForm = JSON.parse(getCurrentTimeVideo);
 
 const onPlay = function(data) {
     console.log(data)
@@ -19,12 +19,12 @@ const onPlay = function(data) {
     
 };
 
-let currentTime = JSON.parse(getCurrentTimeVideo).seconds;
-// console.log(currentTime);
+const currentTime = JSON.parse(getCurrentTimeVideo);   //.seconds
+// console.log(currentTime.seconds);
 
 player.on('play', throttle(onPlay,1000));    
 
-player.setCurrentTime(currentTime).then(function(seconds) {
+player.setCurrentTime(currentTime.seconds).then(function(seconds) {
     // seconds = the actual time that the player seeked to
 }).catch(function(error) {
     switch (error.name) {
